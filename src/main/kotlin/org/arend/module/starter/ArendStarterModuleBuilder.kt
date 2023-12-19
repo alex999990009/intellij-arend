@@ -75,6 +75,8 @@ abstract class ArendStarterModuleBuilder : ModuleBuilder() {
     protected open fun getCollapsedDependencyCategories(): List<String> = emptyList()
     protected open fun getFilePathsToOpen(): List<String> = emptyList()
 
+    protected open fun isShowProjectTypes(): Boolean = true
+
     internal open fun getCollapsedDependencyCategoriesInternal(): List<String> = getCollapsedDependencyCategories()
 
     internal fun isDependencyAvailableInternal(starter: Starter, dependency: Library): Boolean {
@@ -121,7 +123,8 @@ abstract class ArendStarterModuleBuilder : ModuleBuilder() {
             emptyList(),
             emptyList(),
             getTestFrameworks(),
-            getCustomizedMessages()
+            getCustomizedMessages(),
+            isShowProjectTypes()
         )
     }
 
