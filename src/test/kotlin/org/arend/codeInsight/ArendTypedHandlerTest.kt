@@ -18,6 +18,8 @@ class ArendTypedHandlerTest : ArendTestBase() {
 
     fun `test nothing 2`() = check("""\func f {-caret-}(a : Nat} => {?}""", """\func f *a : Nat} => {?}""", '*')
 
+    fun `test nothing 3`() = check("""\func f {a : Nat {-caret-}} => {?}""", """\func f {a : Nat } => {?}""", '}')
+
     fun `test simple quoting parens`() = check("""\func f (a {-caret-}: Nat} => {?}""", """\func f (a (:) Nat} => {?}""", '(')
 
     fun `test simple quoting braces`() = check("""\func f (a {-caret-}: Nat} => {?}""", """\func f (a {:} Nat} => {?}""", '{')
